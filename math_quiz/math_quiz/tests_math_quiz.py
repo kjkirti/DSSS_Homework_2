@@ -14,7 +14,9 @@ class TestMathGame(unittest.TestCase):
 
     def test_function_randomOperator(self):
         # TODO
-        pass
+        operators = set(['+', '-', '*'])
+        result = function_randomOperator()
+        self.assertTrue(result in operators, f"Unexpected operator: {result}")
 
     def test_function_arithOperator(self):
             test_cases = [
@@ -26,7 +28,9 @@ class TestMathGame(unittest.TestCase):
 
             for num1, num2, operator, expected_problem, expected_answer in test_cases:
                 # TODO
-                pass
+                problem, answer = function_arithOperation(num1, num2, operator)
+                self.assertEqual(problem, expected_problem, f"Unexpected problem: {problem}")
+                self.assertEqual(answer, expected_answer, f"Unexpected answer: {answer}")
 
 if __name__ == "__main__":
     unittest.main()
