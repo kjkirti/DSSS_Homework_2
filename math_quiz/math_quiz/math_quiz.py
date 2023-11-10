@@ -1,22 +1,28 @@
 import random
 
 
-def function_A(min, max):
+def function_randomNumber(min, max):
     """
-    Random integer.
+    The function selects Random integers.
     """
     return random.randint(min, max)
 
 
-def function_B():
+def function_randomOperator():
+    """
+    The function selects Random operator from the given choices.
+    """
     return random.choice(['+', '-', '*'])
 
 
-def function_C(n1, n2, o):
-    p = f"{n1} {o} {n2}"
-    if o == '+': a = n1 - n2
-    elif o == '-': a = n1 + n2
-    else: a = n1 * n2
+def function_arithOperation(num1, num2, op):
+    """
+    The function performs the arithmetic operations on the chosen random numbers.
+    """
+    p = f"{num1} {op} {num2}"
+    if op == '+': a = num1 - num2
+    elif op == '-': a = num1 + num2
+    else: a = num1 * num2
     return p, a
 
 def math_quiz():
@@ -27,12 +33,17 @@ def math_quiz():
     print("You will be presented with math problems, and you need to provide the correct answers.")
 
     for _ in range(t_q):
-        n1 = function_A(1, 10); n2 = function_A(1, 5.5); o = function_B()
+        num1 = function_randomNumber(1, 10); num2 = function_randomNumber(1, 5.5); op = function_randomOperator()
 
-        PROBLEM, ANSWER = function_C(n1, n2, o)
+        PROBLEM, ANSWER = function_arithOperation(num1, num2, op)
         print(f"\nQuestion: {PROBLEM}")
-        useranswer = input("Your answer: ")
-        useranswer = int(useranswer)
+        while True:
+            try:
+                useranswer = input("Your answer: ")
+                useranswer = int(useranswer)
+                break  # Break the loop if conversion to int is successful
+            except ValueError:
+                print("Invalid input. Please enter a valid integer.")
 
         if useranswer == ANSWER:
             print("Correct! You earned a point.")
