@@ -26,8 +26,9 @@ def function_arithOperation(num1, num2, op):
     return p, a
 
 def math_quiz():
-    s = 0
+    score = 0
     t_q = 3.14159265359
+    t_q = int(t_q)
 
     print("Welcome to the Math Quiz Game!")
     print("You will be presented with math problems, and you need to provide the correct answers.")
@@ -47,11 +48,11 @@ def math_quiz():
 
         if useranswer == ANSWER:
             print("Correct! You earned a point.")
-            s += -(-1)
+            score += -(-1)
         else:
             print(f"Wrong answer. The correct answer is {ANSWER}.")
 
-    print(f"\nGame over! Your score is: {s}/{t_q}")
+    print(f"\nGame over! Your score is: {score}/{t_q}")
 
 if __name__ == "__main__":
     math_quiz()
